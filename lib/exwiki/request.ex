@@ -1,4 +1,4 @@
-defmodule Exwiki.Query do
+defmodule Exwiki.Request do
   @base_url "https://ja.wikipedia.org/w/api.php"
 
   def to_url(map) do
@@ -6,6 +6,6 @@ defmodule Exwiki.Query do
   end
 
   def to_query(map) do
-    Enum.map_join(map, "&", fn {k, v} -> "#{k}=#{v}" end)
+    URI.encode_query(map)
   end
 end
