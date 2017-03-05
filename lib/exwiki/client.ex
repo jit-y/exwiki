@@ -1,5 +1,5 @@
 defmodule Exwiki.Client do
-  import Exwiki.Request
+  import Exwiki.URI
   @base_url "https://ja.wikipedia.org/w/api.php"
   def get(query) when is_binary(query) do
     params = %{format: :json, action: :query, prop: :revisions, titles: query, rvprop: :content}

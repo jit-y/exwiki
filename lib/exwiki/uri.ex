@@ -1,4 +1,4 @@
-defmodule Exwiki.Request do
+defmodule Exwiki.URI do
   @base_url "https://ja.wikipedia.org/w/api.php"
 
   def to_url(map) do
