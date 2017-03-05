@@ -1,23 +1,23 @@
 defmodule Exwiki.Client do
-  import Exwiki.URI
   @base_url "https://ja.wikipedia.org/w/api.php"
-  def get(query) when is_binary(query) do
+
+  def get(query, options \\ []) do
     params = %{format: :json, action: :query, prop: :revisions, titles: query, rvprop: :content}
-    url = to_url(params)
-    response = HTTPoison.get!(url)
+    response = HTTPoison.get!(@base_url, [], params: params)
     response.body
       |> Poison.decode!
   end
 
-  def get(:random) do
+  def get(:random, options) do
     params = %{format: :json, action: :query, rnnamespace: 0, rnlimit: 5, list: :random}
-    url = to_url(params)
-    response = HTTPoison.get!(url)
+    response = HTTPoison.get!(@base_url, [], params: params)
     response.body
       |> Poison.decode!
   end
 
-  def get(_method) do
+  def get(_method, options) do
     :error
   end
+
+
 end
