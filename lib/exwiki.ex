@@ -1,18 +1,5 @@
 defmodule Exwiki do
   @moduledoc """
-  Documentation for Exwiki.
+  Api client for wiki
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Exwiki.hello
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end
